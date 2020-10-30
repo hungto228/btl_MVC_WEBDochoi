@@ -1,0 +1,52 @@
+﻿@model Web_enti_mvc.Models.NguoiDung
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div class="form-horizontal" style="margin-top:150px">
+        <div>
+            <h4>Thông tin người dùng</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.TenUser)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TenUser)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MkUser)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MkUser)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ChucDanh)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ChucDanh)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaUser }) |
+            @Html.ActionLink("TRở lại", "Index")
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿@model Web_enti_mvc.Models.SanPham
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="form-horizontal" style="margin-top:150px">
+    <h3>Bạn có muốn xóa sản phẩm</h3>
+    <div>
+        <h4>Xóa sản phẩm</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenSP)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenSP)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Mota)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mota)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLuong)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HinhSP)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HinhSP)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DonGia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DonGia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LoaiHang.TenLoai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoaiHang.TenLoai)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Trở lại", "Index")
+            </div>
+        }
+    </div>
+    </div>

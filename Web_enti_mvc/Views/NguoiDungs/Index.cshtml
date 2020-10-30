@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Web_enti_mvc.Models.NguoiDung>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="form-horizontal" style="margin-top:150px">
+        <p>
+            @Html.ActionLink("Thêm người dùng", "Create")
+        </p>
+        <table class="table table-bordered table-striped" id="example">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TenUser)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MkUser)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ChucDanh)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenUser)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MkUser)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ChucDanh)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaUser }) |
+                            @Html.ActionLink("Chi tiết", "Details", new { id = item.MaUser }) |
+                            @Html.ActionLink("Xóa", "Delete", new { id = item.MaUser })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>
+@section scripts
+{
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+}

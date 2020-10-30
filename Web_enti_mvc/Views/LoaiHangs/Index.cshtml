@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Web_enti_mvc.Models.LoaiHang>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<div class="form-horizontal" style="margin-top:150px">
+    <p>
+        @Html.ActionLink("Thêm mới", "Create")
+    </p>
+    <table class="table table-bordered table-striped" id="example">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenLoai)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GhiChu)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenLoai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GhiChu)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaLoai }) |
+                        @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaLoai }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.MaLoai })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+    @section scripts
+{
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+        </script>
+    }
+

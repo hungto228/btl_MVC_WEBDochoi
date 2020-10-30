@@ -1,0 +1,59 @@
+﻿@model Web_enti_mvc.Models.NguoiDung
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+      <title>Xóa loại hàng</title>
+</head>
+<body>
+    <div class="form-horizontal" style="margin-top:150px">
+        <h3>Bạn có muốn xóa người dùng</h3>
+        <div>
+            <h4>Xóa người dùng</h4>
+            <hr />
+            <dl class="dl-horizontal" >
+                <dt>
+                    @Html.DisplayNameFor(model => model.TenUser)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TenUser)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MkUser)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MkUser)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ChucDanh)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ChucDanh)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Trở lại", "Index")
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

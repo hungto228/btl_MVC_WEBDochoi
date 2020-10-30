@@ -1,0 +1,239 @@
+﻿
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phantom SHOP</title>
+    <link href="~/Assets/css/bootstrap.css" rel="stylesheet" type='text/css' />
+    <link href="~/Assets/Layouts/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/Assets/Layouts/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/Assets/Layouts/css/font-awesome.css">
+
+    <link href='~/Assets/css/cyrillic.css' rel='stylesheet' type='text/css'>
+
+    <script src="~/Assets/Layouts/js/zingchart.min.js"></script>
+    <script src="~/Assets/Layouts/js/zingchart.jquery.js"></script>
+    <script src="~/Assets/Layouts/js/jquery.easydropdown.js"></script>
+    <script src="~/Assets/Layouts/js/jquery.nicescroll.js"></script>
+
+    <link href="~/Assets/Layouts/css/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="~/Assets/Layouts/js/jquery.vmap.js" type="text/javascript"></script>
+    <script src="~/Assets/Layouts/js/jquery.vmap.world.js" type="text/javascript"></script>
+    <script src="~/Assets/Layouts/js/jquery.vmap.sampledata.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: '#333333',
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#666666',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#C8EEFF', '#006491'],
+                normalizeFunction: 'polynomial'
+            });
+        });
+    </script>
+    <!----Calender -------->
+    <link rel="stylesheet" href="~/Assets/Layouts/css/clndr.css" type="text/css" />
+    <script src="~/Assets/Layouts/js/underscore-min.js"></script>
+    <script src="~/Assets/Layouts/js/moment-2.2.1.js"></script>
+    <script src="~/Assets/Layouts/js/clndr.js"></script>
+    <script src="~/Assets/Layouts/js/site.js"></script>
+    <!----End Calender -------->
+    <script src="~/Assets/Layouts/js/easyResponsiveTabs.js" type="text/javascript"></script>
+    <link href="~/Assets/Layouts/css/nav.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/Assets/Layouts/js/main.js"></script> <!-- Resource jQuery -->
+    <!-- chart -->
+    <script src="~/Assets/Layouts/js/Chart1.js"></script>
+    <!-- //chart -->
+</head>
+<body>
+    <div class="total-content">
+        <div class="col-md-3 side-bar">
+            <div class="logo text-center">
+                <a href="@Url.Action("Index","Home")"><img src="~/Assets/data/logo.png" alt="" /></a>
+            </div>
+            <div class="navigation">
+                <h3>Giao Diện Admin</h3>
+                <ul>
+                    <li><a href="#"><i class="chat"></i></a></li>
+                    <li><a href="@Url.Action("Index","SanPhams")">Quản lý sản phẩm</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#"><i class="chat"></i></a></li>
+                    <li><a href="@Url.Action("Index","Loaihangs")">Quản lý loại hàng</a></li>
+
+                </ul>
+                <ul>
+                    <li><a href="#"><i class="art"></i></a></li>
+                    @Html.ActionLink("Quản lý nhân viên", "", "")
+
+                </ul>
+                <ul>
+                    <li><a href="#"><i class="user"></i></a></li>
+                    @Html.ActionLink("Quản lý tài khoản", "", "")
+
+                </ul>
+                <ul>
+                    <li><a href="#"><i class="fat"></i></a></li>
+                    @Html.ActionLink("Quản lý đơn hàng", "", "")
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 content">
+            <div class="home-strip">
+
+
+                <div class="member">
+                    <p><a href="#"><i class="men"></i></a><a href="@Url.Action("Index","NguoiDungs")">Người dùng</a></p>
+                    <div id="dd" class="wrapper-dropdown-2" tabindex="1">
+                        <span><img src="~/Assets/Layouts/images/settings.png" /></span>
+                        <ul class="dropdown">
+
+                            <li><a href="#">Thông tin người dùng </a></li>
+                            <li><a href="#">Giúp đỡ</a></li>
+                            <li><a href="#">Báo cáo sự c</a></li>
+                            <li><a href="#">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                    <!-----end-wrapper-dropdown-2---->
+                    <!-----start-script---->
+                    <script type="text/javascript">
+                        function DropDown(el) {
+                            this.dd = el;
+                            this.initEvents();
+                        }
+                        DropDown.prototype = {
+                            initEvents: function () {
+                                var obj = this;
+
+                                obj.dd.on('click', function (event) {
+                                    $(this).toggleClass('active');
+                                    event.stopPropagation();
+                                });
+                            }
+                        }
+                        $(function () {
+
+                            var dd = new DropDown($('#dd'));
+
+                            $(document).click(function () {
+                                // all dropdowns
+                                $('.wrapper-dropdown-2').removeClass('active');
+                            });
+
+                        });
+                    </script>
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <div class="new-users" style="margin-left :50px">
+                    <div class="icon">
+                        <i class="user1"></i>
+                    </div>
+                    <div class="icon-text">
+                        
+                        <p>Trang quản trị </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div>
+                @RenderBody()
+
+            </div>
+            @RenderSection("scripts", false)
+
+
+            <div class="footer">
+                <footer id="footer">
+                    <div class="container">
+                        <!-- introduce-box -->
+                        <div id="introduce-box" class="row">
+                            <div class="col-md-3">
+                                <div id="address-box">
+                                    <a href="#"><img src="~/Assets/data/logo.png" alt="logo" /></a>
+
+                                    <div id="address-list">
+                                        <div class="tit-name">Địa chỉ:</div>
+                                        <div class="tit-contain"> Yên Phụ yên Phong Bắc ninh </div>
+                                        <div class="tit-name">SDT:</div>
+                                        <div class="tit-contain">0379117280</div>
+                                        <div class="tit-name">Email:</div>
+                                        <div class="tit-contain">hungto228@gmail.com</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="introduce-title">Chăm sóc khách hàng</div>
+                                        <ul id="introduce-support" class="introduce-list">
+                                            <li> Thứ 2 - Thứ 6: 7 giờ sáng đến 8 giờ tối </li>
+                                            <li>Thứ 7 & Chủ nhật: 7 giờ sáng đến 6 giờ tối</li>
+                                            <li><a href="policy-faq.html">Cách nào mua</a></li>
+                                            <li><a href="policy-faq.html">Cách nào trả</a></li>
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="introduce-title">Chính sách</div>
+                                        <ul id="introduce-Account" class="introduce-list">
+                                            <li><a href="policy-faq.html">Bảo vệ chính sách</a></li>
+                                            <li><a href="policy-faq.html">Chính sách trả tiên</a></li>
+                                            <li><a href="policy-faq.html">Chính sách đổi trả</a></li>
+                                            <li><a href="policy-faq.html">Điều khoản và điều kiện</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div id="contact-box">
+                                    <div class="introduce-title">Đăng ký nhận bản tin </div>
+                                    <div class="input-group" id="mail-box">
+                                        <input type="text" placeholder="Mail của bạn" />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">OK</button>
+                                        </span>
+                                    </div><!-- /input-group -->
+                                    <div class="introduce-title">Theo dõi chúng tôi</div>
+                                    @*<div class="social-link">
+                                        <a href="#"><i class="fa fa-facebook"></i>FaceBook</a>
+                                        <a href="#"><i class="fa fa-pinterest-p"></i>FaceBook</a>
+                                        <a href="#"><i class="fa fa-google-plus"></i>Googleplus</a>
+                                        <a href="#"><i class="fa fa-youtube"></i>Youtube</a>
+                                    </div>*@
+                                    <div class="social-link">
+                                        <ul class="social-icons">
+                                          
+                                            <li><a class="facebook" data-original-title="facebook" href="#"> </a>FaceBook </li>
+                                            <li><a class="twitter" data-original-title="twitter" href="#">Twitter</a></li>
+                                            <li><a class="googleplus" data-original-title="googleplus" href="#">Googleplus</a></li>
+                                            <li><a class="linkedin" data-original-title="linkedin" href="#">Linkedin</a></li>
+                                            <li><a class="youtube" data-original-title="youtube" href="#">Youtube</a></li>
+                                            <li><a class="vimeo" data-original-title="vimeo" href="#">Vimeo</a></li>
+                                            <li><a class="skype" data-original-title="skype" href="#">Skype</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div><!-- /#introduce-box -->
+
+
+                        <div id="footer-menu-box">
+                            <p class="text-center">Tạo bởi PhantomShop. Đã đăng ký Bản quyền.</p>
+                        </div><!-- /#footer-menu-box -->
+                    </div>
+                </footer>
+            </div>
+</body>
+</html>

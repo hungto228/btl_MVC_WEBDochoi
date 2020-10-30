@@ -1,0 +1,130 @@
+﻿@model IEnumerable<Web_enti_mvc.Models.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+    <div class="form-horizontal" style="margin-top:150px">
+
+        <p>
+            @Html.ActionLink("Thêm mới", "Create")
+        </p>
+        <table class="table table-bordered table-striped" id="example">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.TenSP)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mota)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SoLuong)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HinhSP)
+
+
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DonGia)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LoaiHang.TenLoai)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @*   @Html.DisplayFor(modelItem => item.TenSP)*@
+                            @{
+                                string[] a = item.TenSP.ToString().Split(new String[] { " " }, StringSplitOptions.None);
+                                string tam = "";
+                                if (a.Length < 10)
+                                {
+                                    tam = item.TenSP;
+                                }
+                                else
+                                {
+                                    for (int i = 0; i < 10; i++)
+                                    {
+                                        tam += a[i] + " ";
+                                    }
+                                    tam += "...";
+                                }
+
+                            }
+                            <div title="@item.TenSP">
+                                @tam
+                            </div>
+
+
+                        </td>
+                        <td>
+                            @*   @Html.DisplayFor(modelItem => item.Mota)*@
+                            @{
+                                string[] b = item.Mota.ToString().Split(new String[] { " " }, StringSplitOptions.None);
+                                string tam1 = "";
+                                if (b.Length < 10)
+                                {
+                                    tam1 = item.Mota;
+                                }
+                                else
+                                {
+                                    for (int i = 0; i < 10; i++)
+                                    {
+                                        tam1 += b[i] + " ";
+                                    }
+                                    tam1 += "...";
+                                }
+
+                            }
+                            <div title="@item.Mota">
+                                @tam1
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SoLuong)
+                        </td>
+                        <td>
+                            @*  @Html.DisplayFor(modelItem => item.HinhSP)*@
+                            <img src="~/Assets/data/@item.HinhSP" width="150" height="150" />
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DonGia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LoaiHang.TenLoai)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaSP }) |
+                            @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaSP }) |
+                            @Html.ActionLink("Xóa", "Delete", new { id = item.MaSP })
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+    }
+    @section scripts
+{
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+        </script>
+    }

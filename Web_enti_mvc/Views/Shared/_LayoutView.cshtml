@@ -1,0 +1,189 @@
+﻿@{
+    var db = new Web_enti_mvc.Models.WebdochoiEntities();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>@ViewBag.Title  Phantomshop</title>
+    @Styles.Render("~/Styles/css")
+    @Styles.Render("~/Content/css/")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+   
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles/style.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" />
+</head>
+<body>
+    <div id="wrapper">
+        @if (User.Identity.IsAuthenticated)
+        {
+            @:Xin chào, @User.Identity.Name <a href="/System/Manage">Bảng điều khiển</a>|<a href="/System/Home/Logout">Thoát</a>
+        }
+        <header id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-md-5 col-sm-6 col-xs-12">
+                            <a href="/"><div class="logo" style="background-image: url(../../Assets/data/logo.png);"></div></a>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-3">
+                            <span class="hotline visible-lg">
+                                Liên hệ: 0379117280
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="select-mate visible-xs">
+                                <select id="select-mate">
+                                    <option value="" selected>Lựa chọn Menu</option>
+                                    <option value="/HomeView/Index">Trang chủ</option>
+                                    <optgroup label="Danh mục thể loại">
+                                        @foreach (var item in db.LoaiHangs.ToList())
+                                        {
+                                            <option value="/LoaiHang/Index/@item.MaLoai">@item.TenLoai</option>
+                                        }
+                                    </optgroup>
+                                    <option value="/HomeView/KhuyenMai">Khuyến mãi</option>
+                                    <option value="/HomeView/VanChuyen">Chính sách vận chuyển</option>
+                                    <option value="/HomeView/LienHe">Liên hệ cửa hàng</option>
+                                </select>
+                            </div>
+                            <div class="hidden-xs">
+                                <ul>
+                                    <li>
+                                        <a href="/HomeView/Index">Trang chủ</a>
+                                    </li>
+                                    <li class="mdrop">
+                                        Danh sách Thể Loại
+                                        <ul class="mdrop-menu">
+                                            @foreach (var item in db.LoaiHangs.ToList())
+                                            {
+                                                <li><a href="/LoaiHangView/Index/@item.MaLoai">@item.TenLoai</a></li>
+                                            }
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/HomeView/KhuyenMai">Khuyến mãi</a>
+                                    </li>
+                                    <li class="visible-lg">
+                                        <a href="/HomeView/VanChuyen">Chính sách vận chuyển</a>
+                                    </li>
+                                    <li>
+
+                                        <a href="/HomeView/LienHe">Liên hệ cửa hàng</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header><!-- /header -->
+        <div id="content" style="margin-bottom:100px">
+            @RenderBody()
+        </div>
+        <div class="footer" style="margin-top:300px">
+            <footer id="footer">
+                <div class="container">
+                    <!-- introduce-box -->
+                    <div id="introduce-box" class="row">
+                        <div class="col-md-3">
+                            <div id="address-box">
+                                <a href="#"><img src="~/Assets/data/logo.png" alt="logo" /></a>
+
+                                <div id="address-list">
+                                    <div class="tit-name">Địa chỉ:</div>
+                                    <div class="tit-contain"> Yên Phụ yên Phong Bắc ninh </div>
+                                    <div class="tit-name">SDT:</div>
+                                    <div class="tit-contain">0379117280</div>
+                                    <div class="tit-name">Email:</div>
+                                    <div class="tit-contain">hungto228@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="introduce-title">Chăm sóc khách hàng</div>
+                                    <ul id="introduce-support" class="introduce-list">
+                                        <li> Thứ 2 - Thứ 6: 7 giờ sáng đến 8 giờ tối </li>
+                                        <li>Thứ 7 & Chủ nhật: 7 giờ sáng đến 6 giờ tối</li>
+                                        <li><a href="policy-faq.html">Cách nào mua</a></li>
+                                        <li><a href="policy-faq.html">Cách nào trả</a></li>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="introduce-title">Chính sách</div>
+                                    <ul id="introduce-Account" class="introduce-list">
+                                        <li><a href="policy-faq.html">Bảo vệ chính sách</a></li>
+                                        <li><a href="policy-faq.html">Chính sách trả tiên</a></li>
+                                        <li><a href="policy-faq.html">Chính sách đổi trả</a></li>
+                                        <li><a href="policy-faq.html">Điều khoản và điều kiện</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div id="contact-box">
+                                <div class="introduce-title">Đăng ký nhận bản tin </div>
+                                <div class="input-group" id="mail-box">
+                                    <input type="text" placeholder="Mail của bạn" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">OK</button>
+                                    </span>
+                                </div><!-- /input-group -->
+                                <div class="introduce-title">Theo dõi chúng tôi</div>
+                                @*<div class="social-link">
+                                    <a href="#"><i class="fa fa-facebook"></i>FaceBook</a>
+                                    <a href="#"><i class="fa fa-pinterest-p"></i>FaceBook</a>
+                                    <a href="#"><i class="fa fa-google-plus"></i>Googleplus</a>
+                                    <a href="#"><i class="fa fa-youtube"></i>Youtube</a>
+                                </div>*@
+                                <div class="social-link">
+                                    <ul class="social-icons">
+
+                                        <li><a class="facebook" data-original-title="facebook" href="#"> </a>FaceBook </li>
+                                        <li><a class="twitter" data-original-title="twitter" href="#">Twitter</a></li>
+                                        <li><a class="googleplus" data-original-title="googleplus" href="#">Googleplus</a></li>
+                                        <li><a class="linkedin" data-original-title="linkedin" href="#">Linkedin</a></li>
+                                        <li><a class="youtube" data-original-title="youtube" href="#">Youtube</a></li>
+                                        <li><a class="vimeo" data-original-title="vimeo" href="#">Vimeo</a></li>
+                                        <li><a class="skype" data-original-title="skype" href="#">Skype</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- /#introduce-box -->
+
+
+                    <div id="footer-menu-box">
+                        <p class="text-center">Tạo bởi PhantomShop. Đã đăng ký Bản quyền.</p>
+                    </div><!-- /#footer-menu-box -->
+                </div>
+            </footer>
+        </div>
+        <div class="copyright"></div>
+        <div id="up-arrow"></div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/sitejs")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

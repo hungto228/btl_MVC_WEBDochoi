@@ -1,0 +1,73 @@
+﻿@model Web_enti_mvc.Models.SanPham
+
+@{
+    ViewBag.Title = "Details";
+ 
+        Layout = "~/Views/Shared/_LayoutView.cshtml";   
+}
+
+<div class="form-horizontal" >
+
+    <div>
+        <h4>Thông tin sản phẩm</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenSP)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenSP)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Mota)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mota)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLuong)
+            </dd>
+
+            <dt>
+                @*   @Html.DisplayNameFor(model => model.HinhSP)*@
+
+            </dt>
+
+            <dd>
+                @{
+                    string linkImgProduct = Model.HinhSP;
+                }
+                <img src="~/Assets/data/@linkImgProduct" style="height:150px; width:150px" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DonGia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DonGia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LoaiHang.TenLoai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoaiHang.TenLoai)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+       
+        @Html.ActionLink("Trở lại", "Index")
+    </p>
+</div>
