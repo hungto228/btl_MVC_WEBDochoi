@@ -15,7 +15,7 @@ namespace Web_enti_mvc.Controllers
         private WebdochoiEntities db = new WebdochoiEntities();
 
         // GET: LoaiHangs
-        public ActionResult Isndex()
+        public ActionResult Index()
         {
             return View(db.LoaiHangs.ToList());
         }

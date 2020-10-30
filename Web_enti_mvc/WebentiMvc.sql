@@ -77,6 +77,7 @@ Kích thước: Dài 1,2m
 Chất liệu: Vỏ, cán, lưỡi đều bằng GỖ',30,
  'https://takishop.vn/wp-content/uploads/2019/03/PK012-Ki%E1%BA%BFm-Law-D%C3%A2y-%C4%90%E1%BB%8F-N%C3%A2u-1.2m-400x400.jpg','100000','LH2'
 );
+update SanPham set HinhSP='kiem.png' where MaSP='SP05'
  INSERT INTO SanPham (MaSP,TenSP,Mota,SoLuong,HinhSP,DonGia,MaLoai) VALUES('SP06',N'Phi Tiêu Nhựa Kunai Naruto Bộ 3 Cây', N'Anime/Manga: Naruto Shippuden
 Dài 13cm
 Chất liệu nhựa ABS

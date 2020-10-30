@@ -8,27 +8,25 @@
  *
  * Fork Me @ https://github.com/manifestinteractive/jqvmap
  */
-.jqvmap-label
-{
+.jqvmap-label {
 	position: absolute;
 	display: none;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	background: #292929;
+	background: #04B4AE;
 	color: white;
 	font-family: sans-serif, Verdana;
 	font-size: smaller;
 	padding: 3px;
 }
-.jqvmap-zoomin, .jqvmap-zoomout
-{
+.jqvmap-zoomin, .jqvmap-zoomout {
 	position: absolute;
 	left: 10px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	background: #000000;
+	background: #04B4AE;
 	padding: 3px;
 	color: white;
 	width: 10px;

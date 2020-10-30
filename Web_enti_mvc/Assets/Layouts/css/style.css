@@ -39,11 +39,11 @@ label{
 }
 /*-----start-header----*/
 .side-bar {
-	background:#1C445F;
-	padding:0;
+	background: #04B4AE;
+	padding: 0;
 	min-height: 2500px;
-	width:22%;
-	margin-right:2%;
+	width: 22%;
+	margin-right: 2%;
 }
 .content {
 	padding:0;
@@ -58,13 +58,13 @@ label{
 	margin-bottom:5em;
 }
 .navigation h3 {
-	background:#2F5671;
-	padding:0.7em 0;
-	color:#fff;
-	font-size:1.35em;
-	font-weight:600;
-	padding-left:2.5em;
-	margin-bottom:1em;
+	background: #04B4AE;
+	padding: 0.7em 0;
+	color: #fff;
+	font-size: 1.35em;
+	font-weight: 600;
+	padding-left: 2.5em;
+	margin-bottom: 1em;
 }
 .navigation ul {
 	padding-left:4em;
@@ -72,14 +72,14 @@ label{
 	padding-top:0em;
 	cursor: pointer;
 }
-.navigation ul:hover {
-	background: #2F5671;
-	transition:0.5s all;
-	-webkit-transition:0.5s all;
-	-moz-transition:0.5s all;
-	-o-transition:0.5s all;
-	-ms-transition:0.5s all;
-}
+	.navigation ul:hover {
+		background: #04B4AE;
+		transition: 0.5s all;
+		-webkit-transition: 0.5s all;
+		-moz-transition: 0.5s all;
+		-o-transition: 0.5s all;
+		-ms-transition: 0.5s all;
+	}
 .navigation ul li {
 	display:inline-block;
 	margin:5px 0;
@@ -1282,8 +1282,8 @@ button#focus-single,button#focus-multiple,button#focus-coords,button#focus-init 
 	float:left
 }
 .footer {
-	padding:2em 0;
-	background:#2F5671;
+	padding: 2em 0;
+	background: #04B4AE;
 }
 .copyright p {
 	color: #fff;

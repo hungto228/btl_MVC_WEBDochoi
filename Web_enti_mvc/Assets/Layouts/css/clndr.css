@@ -62,12 +62,12 @@
   width:100%;
   margin:0 auto;
 }
-.cal1 .clndr .clndr-table .header-days {
-  font-size: 0.85em;
-  background: #506177;
-  font-weight: 600;
-  padding-bottom:1em;
-}
+	.cal1 .clndr .clndr-table .header-days {
+		font-size: 0.85em;
+		background: #01DF74;
+		font-weight: 600;
+		padding-bottom: 1em;
+	}
 .cal1 .clndr .clndr-table .header-days .header-day {
   vertical-align: middle;
   text-align: center;

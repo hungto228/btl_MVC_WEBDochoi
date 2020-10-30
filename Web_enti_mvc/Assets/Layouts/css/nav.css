@@ -162,11 +162,11 @@ input#mobile_menu { display: none; }
 	visibility: hidden;
 	position: absolute;
 	list-style: none;
-	top:118px;
-	background-color: #0078b3;
+	top: 118px;
+	background-color: #81F7BE;
 	min-height: 100px;
 	text-align: left;
-	margin-top:30px;
+	margin-top: 30px;
 	padding: 0;
 	padding: 0 10px;
 	z-index: 99;
@@ -218,8 +218,8 @@ input#mobile_menu { display: none; }
 	background:#8cc63f;
 	color: #ffffff;
 }
-.nav li a.color3{
-	background:#5261ac;
+.nav li a.color3 {
+	background: #81F7BE;
 	color: #ffffff;
 }
 .nav li a.color4{
